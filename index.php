@@ -20,8 +20,8 @@
 
 		$_SESSION['dbconnect'] = mysqli_connect('innodb.endora.cz', 'takeit', 'Takeit123', 'ropblogdatabase');
 
-		if (!$_SESSION['dbconnect']) {
-			echo '<script language="javascript">alert("Connection failed!")</script>';
+		if (mysqli_connect_errno()) {
+			echo '<script language="javascript">alert("Connection failed! ' . mysqli_connect_error() . '")</script>';
 		}
 		
 		//echo '<script language="javascript">alert("'. $db .'")</script>';
@@ -48,7 +48,10 @@
 		}
 
 		//window.onload(loadarticles);
-
+		/*window.onload = function(){
+			loadarticles();
+		}*/
+		
 		function loadarticles() {
 			var xhttp;
 
@@ -116,14 +119,24 @@
 
 			<div class="col-md-12">
 
-				<div class="content" onload="loadarticles()"></div>
+				<div class="content" id="content">
+					<?php
+						$sqlAllArticles = "SELECT * FROM articlesNEW LIMIT 1";
+					$db = mysqli_connect('innodb.endora.cz', 'zklimapsa24fancz', 'Tf9k8joy7qs', 'ropblogdatabase');
+						echo mysqli_connect_error();
+						$result = mysqli_query($db, $sqlAllArticles);
+						$row = mysqli_fetch_assoc($result);
+						echo $row;
+						
+						while ($row = mysqli_fetch_assoc($result)) {
+							echo '<script language="javascript">alert("ERR2")</script>';
+							echo '<h2 class="articleh"> ' . $row['title'] . '</h2><p class="articlep">' . $row['text'] . '</p><label class="articlelabel">– ' . $row['author'] . ' ' . $row['time'] . '</label>';					
+						}
+						
+						echo '<script language="javascript">alert("ERR3")</script>';
+					?>				
+				</div>
 
-			</div>
-			
-			<div class="col-md-12">
-				<footer>
-
-				</footer>
 			</div>
 		</div>
 	</div>
