@@ -48,7 +48,7 @@
                 $error = mysqli_fetch_assoc($result);
                 //echo '<script language="javascript">alert("'. $result .'")</script>';
                 
-                echo '<script language="javascript">alert("'. $error['username'] .'")</script>';
+                //echo '<script language="javascript">alert("'. $error['username'] .'")</script>';
 
                 if ($error) {
                     if (password_verify($password, $error['password'])) {
