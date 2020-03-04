@@ -66,7 +66,7 @@
 			<div class="col-md-12">
 				<div class="content">
 					<h1 class="h1Content">O blogu</h1>
-                    <p class="textContent">Blog "Zakousni se" je vytvořený pro účely závěrečné ročníkové práce. Web je tvořen pomocí HTML5, CSS3, JavaScriptu a PHP. Responzivita je zajištěna pomocí technologie Bootstrap 4. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quo dolorem eligendi, temporibus facere numquam quidem, consectetur amet placeat, at praesentium optio magnam asperiores quis illum voluptatem veniam officiis dolore?</p>
+                    <p class="textContent">Blog "Zakousni se" je vytvořený pro účely závěrečné ročníkové práce. Web je tvořen pomocí HTML5, CSS3, JavaScriptu a PHP. Responzivita je zajištěna pomocí technologie Bootstrap 4. </p>
 				</div>
 			</div>
 		</div>
