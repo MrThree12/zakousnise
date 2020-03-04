@@ -1,0 +1,111 @@
+@font-face{
+    src: url("fonts/Bohemian\ typewriter.ttf");
+    font-family: TW;
+}
+
+@font-face{
+    src: url("fonts/JaneAusU.ttf");
+    font-family: JAU;
+}
+
+@media only screen and (max-width: 600px){
+    h1.h1{
+        font-size: 300%!important;
+    }
+
+    p.citation{
+        font-size: 200%!important;
+    }
+}
+
+html, body{
+    height: 100%;
+    margin: 0px;
+    scroll-behavior: smooth;
+}
+
+body{
+    background-image: url("pics/02.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;  
+    
+    font-family: TW;
+}
+
+.header{
+    text-align: center;
+    display: flex;
+    justify-content: center;    
+    flex-direction: column;
+    height: 100%;
+
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.subheader{/*
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 75%; 
+    height: 100%;  */
+}
+
+#navbar{
+    font-size: x-large!important;
+}
+
+#navbrand{
+    font-size: xx-large!important;
+}
+
+h1.h1{
+    font-size: 500%;
+    font-family: TW;
+
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+p.citation{    
+    font-family: JAU;
+    font-style: italic;
+    font-size: 300%;
+    color: black; 
+
+    font-weight: bold;
+}
+
+.content{
+    background-color: white;   
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 3%;
+    height: 1000px;
+}
+
+.h1Content{
+    font-family: TW;
+}
+
+.textContent{
+    margin-left: 1%;
+    margin-right: 1%;
+    text-align: justify;
+    font-size: large;
+}
+
+.articleh{
+    
+}
+
+.articlep{
+
+}
+
+.artclelabel{
+    
+}
+

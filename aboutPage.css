@@ -1,0 +1,64 @@
+@font-face{
+    src: url("../fonts/Bohemian\ typewriter.ttf");
+    font-family: TW;
+}
+
+@font-face{
+    src: url("../fonts/JaneAusU.ttf");
+    font-family: JAU;
+}
+
+@media only screen and (max-width: 600px){
+    
+}
+
+html, body{
+    height: 100%;
+    margin: 0px;
+    scroll-behavior: smooth;
+}
+
+body{
+    background-image: url("../pics/02.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;  
+    
+    font-family: TW;
+}
+
+#username, #password, #passwordagain, #antispam{
+    margin-bottom: 0.5%;
+}
+
+.header{
+    text-align: center;
+    display: flex;
+    justify-content: center;    
+    flex-direction: column;
+    height: 100%;
+
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.wrongInput{
+    color: rgb(206, 6, 6);
+}
+
+.loginform{
+    background-color: white;
+    border-radius: 25px;
+    padding: 1%;
+}
+
+#navbar{
+    font-size: x-large!important;
+}
+
+#navbrand{
+    font-size: xx-large!important;
+}
+
+
+
