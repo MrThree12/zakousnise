@@ -1,18 +1,18 @@
 <?php
-session_name("User");
-session_start();
+    session_name("User");
+    session_start();
 
-$sqlAllArticles = "SELECT * FROM articlesNEW";
 
-$result = mysqli_query($_SESSION['dbconnect'], $sqlAllArticles);
+    $sqlAllArticles = "SELECT * FROM articlesNEW";
 
-echo '<script language="javascript">alert("ERR0")</script>';
+    $result = mysqli_query($_SESSION['dbconnect'], $sqlAllArticles);
+    
 
-while ($row = mysqli_fetch_assoc($result)) {
-    echo '
-    <h2 class="articleh"> ' . $row['title'] . '</h2>
-    <p class="articlep">' . $row['text'] . '</p>
-    <label class="articlelabel">– ' . $row['author'] . ' ' . $row['time'] . '</label>    
-    ';
-}
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo '
+        <h2 class="articleh"> ' . $row['title'] . '</h2>
+        <p class="articlep">' . $row['text'] . '</p>
+        <label class="articlelabel">– ' . $row['author'] . ' ' . $row['time'] . '</label>    
+        ';
+    }
 ?>
