@@ -41,7 +41,7 @@ body{
   padding-left: 3%;
   padding-right: 3%;
   padding-top: 3%;
-  height: 1000px;
+  min-height: 1000px;
 }
 
 .dropdownbutton{
@@ -79,8 +79,17 @@ body{
 }
 
 .inputButton{
+  
+}
+
+.usertitle{
 
 }
+
+.userbutton{
+  
+}
+
 /***********************************************/
 /*via w3*/
 .dropbtn {
