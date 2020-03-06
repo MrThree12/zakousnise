@@ -1,0 +1,121 @@
+@font-face{
+    src: url("../fonts/Bohemian\ typewriter.ttf");
+    font-family: TW;
+}
+
+@font-face{
+    src: url("../fonts/JaneAusU.ttf");
+    font-family: JAU;
+}
+
+@media only screen and (max-width: 600px){
+    
+}
+
+html, body{
+    height: 100%;
+    margin: 0px;
+    scroll-behavior: smooth;
+}
+
+body{
+    background-image: url("../pics/02.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;  
+    
+    font-family: TW;
+}
+
+#navbar{
+    font-size: x-large!important;
+}
+
+#navbrand{
+    font-size: xx-large!important;
+}
+
+.content{
+  background-color: white;   
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 3%;
+  height: 1000px;
+}
+
+.dropdownbutton{
+  width: 100%;
+}
+
+.articleh{
+  font-family: TW;  
+  margin-top: 1%;
+}
+
+.articleh:hover{
+  cursor: pointer;
+}
+
+.artilep{
+  text-indent: 50px;
+}
+
+.articlelabel{
+  float: right;
+  color: darkgray;
+}
+
+.form{
+  align-content: column;
+}
+
+.inputTitle{
+  min-width: 75%;
+}
+
+.inputText{
+   min-width: 80%;
+}
+
+.inputButton{
+
+}
+/***********************************************/
+/*via w3*/
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    min-width: 100%;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    
+  }
+  
+  .btncontent {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .btncontent a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .btncontent a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .btncontent {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
