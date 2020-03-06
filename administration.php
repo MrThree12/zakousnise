@@ -239,7 +239,7 @@
                         childText.classList.add("inputText");
 
                         var childButton = document.createElement("button");
-                        childButton.appendChild(document.createTextNode("Upravit"));
+                        childButton.appendChild(document.createTextNode("Pridat"));
                         childButton.classList.add("inputbutton");
                         childButton.onclick = function(){
                             ajaxRequestToAddArticles(author);
@@ -284,7 +284,7 @@
 
                             var childButton = document.createElement("button");
                             childButton.classList.add("userbutton");
-                            childButton.appendChild(document.createTextNode("Odstran"));
+                            childButton.appendChild(document.createTextNode("Odstranit"));
                             childButton.onclick = function(){
                                 ajaxRequestToDeleteUser(users[i]['user_ID']);
                             }
