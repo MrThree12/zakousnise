@@ -89,14 +89,22 @@
                         while ($rowofarticles = mysqli_fetch_assoc($result)) {
                             array_push($articles, $rowofarticles);
                         }
+
+                        $sqlallusers = "SELECT * FROM ROPBlogUsers";
+                        $result = mysqli_query($db, $sqlallusers);  
+                        $users = array();
+                        while ($rowofusers = mysqli_fetch_assoc($result)) {
+                            array_push($users, $rowofusers);
+                        }
                     ?>
 
                     var articles = <?php echo json_encode($articles); ?>;
                     var author = "<?php echo $_SESSION['Username']; ?>";
+                    var users = <?php echo json_encode($users); ?>;
                     
                     //alert(articles[0]['title']);
 
-                    function changearticle() {
+                    function changearticle() { //need deleting articles!!!!!!!!!!!!!!!!!!!!!!!!!!
                         var defaultNode = document.getElementById("content");
                         var node = document.createElement("div");
                         var child = document.createElement("p").appendChild(document.createTextNode("Klikni na nadpis pro upraveni clanku."));
@@ -121,12 +129,13 @@
 
                                 var childl = document.createElement("label");
                                 childl.classList.add("articlelabel");
-                                content = document.createTextNode("–" + articles[i]['author'] + articles[0]['time']);
+                                content = document.createTextNode("–" + articles[i]['author'] + " " + articles[0]['time']);
                                 childl.appendChild(content);
 
                                 node.appendChild(childh);
                                 node.appendChild(childp);
-                                node.appendChild(childl);                                
+                                node.appendChild(childl); 
+                                node.appendChild(document.createElement("br"));                               
                             }
                         } 
                         defaultNode.replaceChild(node, defaultNode.childNodes[0]); 
@@ -155,7 +164,14 @@
                         childButton.appendChild(document.createTextNode("Upravit"));
                         childButton.classList.add("inputbutton");
                         childButton.onclick = function(){
-                            ajaxRequestToUpdateArticles(articles[id]['article_ID'], document.getElementById('title').innerHTML, document.getElementById('textarea').innerHTML);
+                            ajaxRequestToUpdateArticles(articles[id]['article_ID']);
+                        }
+
+                        var childButton2 = document.createElement("button");
+                        childButton2.appendChild(document.createTextNode("Odstranit"));
+                        childButton2.classList.add("inputbutton");
+                        childButton2.onclick = function(){
+                            ajaxRequestToDeleteArticles(articles[id]['article_ID']);
                         }
 
                         node.appendChild(childtitle);
@@ -163,11 +179,17 @@
                         node.appendChild(childText);
                         node.appendChild(document.createElement("br"));
                         node.appendChild(childButton);
+                        node.appendChild(document.createElement("br"));
+                        node.appendChild(childButton2);
+                        node.appendChild(document.createElement("br"));
                         defaultNode.replaceChild(node, defaultNode.childNodes[0]);
                         $('textarea').autoResize();
                     }
 
-                    function ajaxRequestToUpdateArticles(id, title, text) {
+                    function ajaxRequestToUpdateArticles(id) {                        
+                        var title = document.getElementById("title").value;
+                        var text = document.getElementById("textarea").innerHTML;
+
                         var xhttp;
 
                         xhttp = new XMLHttpRequest();
@@ -180,6 +202,24 @@
                         xhttp.send();
 
                         //changearticle();
+                    }
+
+                    function ajaxRequestToDeleteArticles(id) {
+                        var title = document.getElementById("title").value;
+                        var text = document.getElementById("textarea").innerHTML;
+
+                        var xhttp;
+
+                        xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                alert(this.responseText);
+                            }
+                        };
+                        xhttp.open("GET", "deletearticle.php?id=" + id, true);
+                        xhttp.send();
+
+                        cleansheet();  
                     }
 
                     function addarticle(){
@@ -202,7 +242,7 @@
                         childButton.appendChild(document.createTextNode("Upravit"));
                         childButton.classList.add("inputbutton");
                         childButton.onclick = function(){
-                            ajaxRequestToAddArticles(document.getElementById('title').innerHTML, document.getElementById('textarea').innerHTML, author);
+                            ajaxRequestToAddArticles(author);
                         }
 
                         node.appendChild(childtitle);
@@ -214,7 +254,10 @@
                         $('textarea').autoResize();
                     }
 
-                    function ajaxRequestToAddArticles(title, text, author) {
+                    function ajaxRequestToAddArticles(author) {
+                        var title = document.getElementById("title").value;
+                        var text = document.getElementById("textarea").innerHTML;
+
                         var xhttp;
 
                         xhttp = new XMLHttpRequest();
@@ -225,9 +268,55 @@
                         };
                         xhttp.open("GET", "addarticle.php?t=" + title + "&x=" + text + "&a=" + author, true);
                         xhttp.send();
+
+                        cleansheet();  
                     }
 
+                    function deleteuser() {
+                        var defaultNode = document.getElementById("content");
+                        var node = document.createElement("div");
 
+                        for (let i = 0; i < users.length; i++) {
+                            
+                            var childtitle = document.createElement("h3");
+                            childtitle.classList.add("usertitle");
+                            childtitle.appendChild(document.createTextNode(users[i]['username']));
+
+                            var childButton = document.createElement("button");
+                            childButton.classList.add("userbutton");
+                            childButton.appendChild(document.createTextNode("Odstran"));
+                            childButton.onclick = function(){
+                                ajaxRequestToDeleteUser(users[i]['user_ID']);
+                            }
+                            
+                            node.appendChild(childtitle);
+                            node.appendChild(childButton);
+                            node.appendChild(document.createElement("br"));
+                            defaultNode.replaceChild(node, defaultNode.childNodes[0]);
+                        }
+                    }
+
+                    function ajaxRequestToDeleteUser(id) {
+                        var xhttp;
+
+                        xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                alert(this.responseText);
+                            }
+                        };
+                        xhttp.open("GET", "deleteuser.php?id=" + id, true);
+                        xhttp.send();
+
+                        cleansheet();                        
+                    }
+
+                    function cleansheet() {
+                        var defaultNode = document.getElementById("content");
+                        var node = document.createElement("div");
+
+                        defaultNode.replaceChild(node, defaultNode.childNodes[0]);
+                    }
                     
                 </script>
                 
