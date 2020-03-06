@@ -83,7 +83,6 @@ p.citation{
     padding-left: 3%;
     padding-right: 3%;
     padding-top: 3%;
-    height: 1000px;
 }
 
 .h1Content{
@@ -97,15 +96,22 @@ p.citation{
     font-size: large;
 }
 
+.article{
+    padding: 1%; 
+    margin-top: 1%; 
+    margin-bottom: 1%; 
+}
+
 .articleh{
-    
+    font-family: TW;
 }
 
-.articlep{
-
+.artilep{
+    text-indent: 50px;
 }
 
-.artclelabel{
-    
+.articlelabel{
+    float: right;
+    color: darkgray;
 }
 
