@@ -6,7 +6,7 @@
 
 	<title>Blog</title>
 
-	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="aboutPage.css">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -37,8 +37,16 @@
 							<a class="nav-link" href="#">Rubriky</a>
 						</li>-->
 						<li class="nav-item">
-							<a class="nav-link" href="aboutpage.php">O stránce</a>
+							<a class="nav-link" href="aboutPage.php">O stránce</a>
 						</li>
+						<?php
+							if($_SESSION['LoggedIn'] == true){
+								echo '
+									<li class="nav-item">
+										<a class="nav-link" href="administration.php">Administrace</a>
+									</li>';
+							}
+						?>
 					</ul>
 
 					<ul class="navbar-nav ml-auto">
@@ -51,11 +59,16 @@
 									<li class="nav-item">
 										<a class="nav-link" href="register.php"><span class="fa fa-sign-in"></span> Register</a>
 									</li>';
-							} else {
+							} else { 
+								echo '
+								<li class="nav-item">
+									<a class="nav-link" href="#">' . $_SESSION['Username'] . '</a>
+								</li>
+								';
 								echo '
 								<li class="nav-item">							
-									<a class="nav-link" href="logout.php"><span class="fa fa-sign-out"></span> ' . $_SESSION['Username'] . '</a>
-								</li>'; 
+									<a class="nav-link" href="logout.php"><span class="fa fa-sign-out"></span>Odhlasit</a>
+								</li>';
 							}
 						?>
 
@@ -64,7 +77,8 @@
 			</nav>
 
 			<div class="col-md-12">
-				<div class="content">
+
+				<div class="content" id="content">
 					<h1 class="h1Content">O blogu</h1>
                     <p class="textContent">Blog "Zakousni se" je vytvořený pro účely závěrečné ročníkové práce. Web je tvořen pomocí HTML5, CSS3, JavaScriptu a PHP. Responzivita je zajištěna pomocí technologie Bootstrap 4. </p>
 				</div>
