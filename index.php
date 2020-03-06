@@ -71,7 +71,7 @@
 			<h1 class="h1">ZAKOUSNI SE</h1>
 			<p class="citation">„Manželství je spravedlivé zařízení. Žena musí denně vařit a muž to musí denně jíst.“ </p>
 			<p class="citation">– Alberto Sordi</p>
-			<button onclick="scrollPage()">Zakousnout se</button>			
+			<button class="btn-light" onclick="scrollPage()">Zakousnout se</button>			
 		</div>
 	</div>	
 
@@ -91,13 +91,13 @@
 							<a class="nav-link" href="#">Rubriky</a>
 						</li>-->
 						<li class="nav-item">
-							<a class="nav-link" href="aboutpage.php">O stránce</a>
+							<a class="nav-link" href="aboutPage.php">O stránce</a>
 						</li>
 						<?php
 							if($_SESSION['LoggedIn'] == true){
 								echo '
 									<li class="nav-item">
-										<a class="nav-link" href="administration.php"></span>Administrace</a>
+										<a class="nav-link" href="administration.php">Administrace</a>
 									</li>';
 							}
 						?>
