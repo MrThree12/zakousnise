@@ -113,6 +113,7 @@
 							<a class="nav-link" href="#">Rubriky</a>
 						</li>-->
 						<li class="nav-item">
+							<a class="nav-link" href="aboutPage.php">O stránce</a>
 						</li>
 					</ul>
 
