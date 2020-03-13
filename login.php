@@ -24,8 +24,6 @@
 			echo '<script language="javascript">alert("Connection failed!")</script>';
 		}
 
-        //echo '<script language="javascript">alert("'. $db .'")</script>';
-
         $fillAll = " ";
         $wrong_input = " ";
         $wrong_input = " ";
@@ -39,16 +37,10 @@
                 $username = htmlspecialchars($_POST['username']);
                 $password = htmlspecialchars($_POST['password']);
 
-                //echo '<script language="javascript">alert("'. $username .'")</script>';
-
                 $sqlFindUser = "SELECT * FROM ROPBlogUsers WHERE username='$username'";
-                //echo '<script language="javascript">alert("'. $sqlFindUser .'")</script>';
-                
+                                
                 $result = mysqli_query($_SESSION['dbconnect'], $sqlFindUser);
                 $error = mysqli_fetch_assoc($result);
-                //echo '<script language="javascript">alert("'. $result .'")</script>';
-                
-                //echo '<script language="javascript">alert("'. $error['username'] .'")</script>';
 
                 if ($error) {
                     if (password_verify($password, $error['password'])) {

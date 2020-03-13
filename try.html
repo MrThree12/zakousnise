@@ -1,0 +1,30 @@
+<script>
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("content").innerHTML = this.response;
+        }
+    };
+
+    xhttp.open('GET', 'https://www.worldometers.info/coronavirus/index.php', true),
+    xhttp.send();  
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12" id="content">
+    
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -50,8 +50,9 @@
 		//window.onload(loadarticles);
 		window.onload = function(){
 			loadarticles();
+			changeCitation();
 		}
-		
+
 		function loadarticles() {
 			var xhttp;
 
@@ -64,14 +65,22 @@
 			xhttp.open("GET", "loadarticles.php", true);
 			xhttp.send();
 		}
+
+		function changeCitation() {
+			var citations = ["Manželství je spravedlivé zařízení. Žena musí denně vařit a muž to musí denně jíst.", "Jiní lidé žijí, aby jedli, já však jím, abych žil.","Zdrženlivost v jídle je buď láska k vlastnímu zdraví, nebo neschopnost pořádně se najíst."];
+			var authors = ["Alberto Sordi", "Josef Václav Sládek", "Francois de la Rochefoucauld"];
+			var number = Math.floor(Math.random() * citations.length);
+			document.getElementById("citation").innerHTML = "„" + citations[number] + "“";
+			document.getElementById("author").innerHTML = "– " + authors[number];
+		}
 	</script>
 	
 	<div class="header">
 		<div class="subheader">
 			<h1 class="h1">ZAKOUSNI SE</h1>
-			<p class="citation">„Manželství je spravedlivé zařízení. Žena musí denně vařit a muž to musí denně jíst.“ </p>
-			<p class="citation">– Alberto Sordi</p>
-			<button class="btn-light" onclick="scrollPage()">Zakousnout se</button>			
+			<p class="citation" id="citation">Manželství je spravedlivé zařízení. Žena musí denně vařit a muž to musí denně jíst. </p>
+			<p class="citation" id="author">– Alberto Sordi</p>
+			<button class="button" onclick="scrollPage()"><span class="fa fa-chevron-right"></span> Zakousnout se <span class="fa fa-chevron-left"></span></button>			
 		</div>
 	</div>	
 

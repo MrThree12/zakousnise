@@ -21,7 +21,7 @@
         echo "Error: " + mysqli_connect_error();
     }
 
-    $sqlallarticles = "SELECT * FROM articles";
+    $sqlallarticles = "SELECT * FROM articles ORDER BY article_ID DESC";
     $articleresult = mysqli_query($db, $sqlallarticles);    
     
     while ($rowofarticles = mysqli_fetch_assoc($articleresult)) {

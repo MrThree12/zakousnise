@@ -115,3 +115,20 @@ p.citation{
     color: darkgray;
 }
 
+.button{
+    font-family: TW;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: black;
+    background-color: transparent;
+    color: black;
+    font-size: x-large;
+    transition-duration: 0.3s;
+}
+
+.button:hover{
+    background-color: black;
+    cursor: pointer;
+    color: white;
+}
+

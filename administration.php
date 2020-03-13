@@ -273,26 +273,30 @@
                     }
 
                     function deleteuser() {
-                        var defaultNode = document.getElementById("content");
-                        var node = document.createElement("div");
+                        if (levelOfAdministration == 1) {
+                            var defaultNode = document.getElementById("content");
+                            var node = document.createElement("div");
 
-                        for (let i = 0; i < users.length; i++) {
-                            
-                            var childtitle = document.createElement("h3");
-                            childtitle.classList.add("usertitle");
-                            childtitle.appendChild(document.createTextNode(users[i]['username']));
+                            for (let i = 0; i < users.length; i++) {
+                                
+                                var childtitle = document.createElement("h3");
+                                childtitle.classList.add("usertitle");
+                                childtitle.appendChild(document.createTextNode(users[i]['username']));
 
-                            var childButton = document.createElement("button");
-                            childButton.classList.add("userbutton");
-                            childButton.appendChild(document.createTextNode("Odstranit"));
-                            childButton.onclick = function(){
-                                ajaxRequestToDeleteUser(users[i]['user_ID']);
+                                var childButton = document.createElement("button");
+                                childButton.classList.add("userbutton");
+                                childButton.appendChild(document.createTextNode("Odstranit"));
+                                childButton.onclick = function(){
+                                    ajaxRequestToDeleteUser(users[i]['user_ID']);
+                                }
+                                
+                                node.appendChild(childtitle);
+                                node.appendChild(childButton);
+                                node.appendChild(document.createElement("br"));
+                                defaultNode.replaceChild(node, defaultNode.childNodes[0]);
                             }
-                            
-                            node.appendChild(childtitle);
-                            node.appendChild(childButton);
-                            node.appendChild(document.createElement("br"));
-                            defaultNode.replaceChild(node, defaultNode.childNodes[0]);
+                        } else {
+                            alert("Nemas opavneni!");
                         }
                     }
 
@@ -322,7 +326,7 @@
                 
                 <div class="col-md-12 dropdownbutton">
                     <div class="dropdown">
-                        <button class="dropbtn">Co chcete udělat?</button>
+                        <button class="dropbtn">Co chcete udělat?   <span class="fa fa-caret-down"></span></button>
                         <div class="btncontent">
                             <a href="#" onclick="addarticle()">Přidat článek</a>
                             <a href="#" onclick="changearticle()">Upravit článek</a>
