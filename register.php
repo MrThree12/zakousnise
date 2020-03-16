@@ -168,7 +168,7 @@
                     <label for="antispam">Letošní rok:</label>
                     <input type="number" class="form-control" id="antispam" placeholder="Letošní rok" name="antispam">
                 </div>
-                <button type="submit" class="btn btn-dark" onclick="DoSpinner()">Login</button>
+                <button type="submit" class="btn btn-dark" onclick="DoSpinner()">Registrovat</button>
             </form>
             <div id="spinnerdiv"></div>
 		</div>

@@ -104,41 +104,46 @@
                     
                     //alert(articles[0]['title']);
 
-                    function changearticle() { //need deleting articles!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        var defaultNode = document.getElementById("content");
-                        var node = document.createElement("div");
-                        var child = document.createElement("p").appendChild(document.createTextNode("Klikni na nadpis pro upraveni clanku."));
-                        node.appendChild(child);
+                    function changearticle() { //need deleting articles!!!!!!!!!!!!!!!!!!!!!!!!!! //done
+                        if (levelOfAdministration >= 1) {
+                            var defaultNode = document.getElementById("content");
+                            var node = document.createElement("div");
+                            var child = document.createElement("p").appendChild(document.createTextNode("Klikni na nadpis pro upraveni clanku."));
+                            node.appendChild(child);
 
-                        for (let i = 0; i < articles.length; i++) {
-                            
-                            if (author == articles[i]['author'] || levelOfAdministration >= 1) {
+                            for (let i = 0; i < articles.length; i++) {
+                                
+                                if (author == articles[i]['author'] || levelOfAdministration >= 1) {
 
-                                var childh = document.createElement("h3");
-                                childh.classList.add("articleh");
-                                var content = document.createTextNode(articles[i]['title']);
-                                childh.appendChild(content);
-                                childh.onclick = function(){
-                                    updatearticle(i, articles)
-                                };
+                                    var childh = document.createElement("h3");
+                                    childh.classList.add("articleh");
+                                    var content = document.createTextNode(articles[i]['title']);
+                                    childh.appendChild(content);
+                                    childh.onclick = function(){
+                                        updatearticle(i, articles)
+                                    };
 
-                                var childp = document.createElement("p");
-                                childp.classList.add("articlep");
-                                content = document.createTextNode(articles[i]['text']);
-                                childp.appendChild(content);
+                                    var childp = document.createElement("p");
+                                    childp.classList.add("articlep");
+                                    content = document.createTextNode(articles[i]['text']);
+                                    childp.appendChild(content);
 
-                                var childl = document.createElement("label");
-                                childl.classList.add("articlelabel");
-                                content = document.createTextNode("–" + articles[i]['author'] + " " + articles[0]['time']);
-                                childl.appendChild(content);
+                                    var childl = document.createElement("label");
+                                    childl.classList.add("articlelabel");
+                                    content = document.createTextNode("–" + articles[i]['author'] + " " + articles[0]['time']);
+                                    childl.appendChild(content);
 
-                                node.appendChild(childh);
-                                node.appendChild(childp);
-                                node.appendChild(childl); 
-                                node.appendChild(document.createElement("br"));                               
-                            }
-                        } 
-                        defaultNode.replaceChild(node, defaultNode.childNodes[0]); 
+                                    node.appendChild(childh);
+                                    node.appendChild(childp);
+                                    node.appendChild(childl); 
+                                    node.appendChild(document.createElement("br"));                               
+                                }
+                            } 
+                            defaultNode.replaceChild(node, defaultNode.childNodes[0]); 
+                        } else {
+                            alert("Nemas opavneni!");
+                        }
+                        
                     }
 
                     function updatearticle(id, articles) {
