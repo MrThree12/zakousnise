@@ -174,6 +174,7 @@
 
                         var childButton2 = document.createElement("button");
                         childButton2.appendChild(document.createTextNode("Odstranit"));
+                        childButton2.setAttribute("class", "btn btn-dark");
                         childButton2.classList.add("inputbutton");
                         childButton2.onclick = function(){
                             ajaxRequestToDeleteArticles(articles[id]['article_ID']);
@@ -245,6 +246,7 @@
 
                         var childButton = document.createElement("button");
                         childButton.appendChild(document.createTextNode("Pridat"));
+                        childButton.setAttribute("class", "btn btn-dark");
                         childButton.classList.add("inputbutton");
                         childButton.onclick = function(){
                             ajaxRequestToAddArticles(author);
@@ -291,6 +293,7 @@
                                 var childButton = document.createElement("button");
                                 childButton.classList.add("userbutton");
                                 childButton.appendChild(document.createTextNode("Odstranit"));
+                                childButton.setAttribute("class", "btn btn-dark");
                                 childButton.onclick = function(){
                                     ajaxRequestToDeleteUser(users[i]['user_ID']);
                                 }
